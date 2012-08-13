@@ -31,7 +31,7 @@ module Astrails
       end
 
       def clicktale_enabled?
-        @clicktale_enabled ||= clicktale_config[:enabled] && request.format.try(:html?) && request.get?
+        @clicktale_enabled ||= clicktale_config[:enabled] && response.content_type == 'text/html' && request.format.try(:html?)
       end
 
       def clicktale_config
